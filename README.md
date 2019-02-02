@@ -16,7 +16,7 @@ enable users to check their own systems for hidden instructions and bugs.
 To run a basic audit against your processor:
 
 ```
-sudo ./sifter.py --unk --dis --len --sync --tick -- -P1 -t
+sudo python3 ./sifter.py --unk --dis --len --sync --tick -- -P1 -t
 ```
 
 ![demo_sandsifter](references/sandsifter.gif)
@@ -85,7 +85,7 @@ make
 and is then run with 
 
 ```
-sudo ./sifter.py --unk --dis --len --sync --tick -- -P1 -t
+sudo python3 ./sifter.py --unk --dis --len --sync --tick -- -P1 -t
 ```
 
 ### Flags
@@ -95,7 +95,7 @@ Flags are passed to the sifter with --flag, and to the injector with -- -f.
 Example:
 
 ```
-sudo ./sifter.py --unk --dis --len --sync --tick -- -P1 -t
+sudo python3 ./sifter.py --unk --dis --len --sync --tick -- -P1 -t
 ```
 
 Sifter flags:
@@ -279,7 +279,7 @@ command line, or cycled via hotkeys.
 	instruction space with the -i and -e flags:
 
 	```
-	sudo ./sifter.py --unk --dis --len --sync --tick -- -t -i f0f0 -e f0f1 -D -P15
+	sudo python3 ./sifter.py --unk --dis --len --sync --tick -- -t -i f0f0 -e f0f1 -D -P15
 	```
 
 * Legacy systems
@@ -288,7 +288,7 @@ command line, or cycled via hotkeys.
 	pass the --low-mem flag to the sifter and the -N flag to the injector:
 
 	```
-	sudo ./sifter.py --unk --dis --len --sync --tick --low-mem -- -P1 -t -N
+	sudo python3 ./sifter.py --unk --dis --len --sync --tick --low-mem -- -P1 -t -N
 	```
 
 	If you observe your scans completing too quickly (for example, a scan
