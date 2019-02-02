@@ -193,7 +193,7 @@ def cstr2py(s):
 
 # targeting python 2.6 support
 def int_to_comma(x):
-    if type(x) not in [type(0), type(0L)]:
+    if type(x) not in [type(0), type(0)]:
         raise TypeError("Parameter must be an integer.")
     if x < 0:
         return '-' + int_to_comma(-x)
@@ -789,12 +789,12 @@ def main():
     if "--" in injector_args: injector_args.remove("--")
 
     if not args.len and not args.unk and not args.dis and not args.ill:
-        print "warning: no search type (--len, --unk, --dis, --ill) specified, results will not be recorded."
+        print("warning: no search type (--len, --unk, --dis, --ill) specified, results will not be recorded.")
         raw_input()
 
     if args.resume:
         if "-i" in injector_args:
-            print "--resume is incompatible with -i"
+            print("--resume is incompatible with -i")
             sys.exit(1)
 
         if os.path.exists(LAST):
@@ -802,7 +802,7 @@ def main():
                 insn = f.read()
                 injector_args.extend(['-i',insn])
         else:
-            print "no resume file found"
+            print("no resume file found")
             sys.exit(1)
 
     if not os.path.exists(OUTPUT):
@@ -814,7 +814,7 @@ def main():
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE
                 ).communicate()
-    arch = re.search(r".*(..)-bit.*", injector_bitness).group(1)
+    arch = re.search(b".*(..)-bit.*", injector_bitness).group(1)
 
     ts = ThreadState()
     signal.signal(signal.SIGINT, exit_handler)
